@@ -28,13 +28,13 @@
 // Called when capture operation is finished 
 // 
 function captureSuccess(mediaFiles) { 
-alert('success'); 
+alert('success! Now uploading...'); 
 } 
 
 // Called if something bad happens. 
 // 
 function captureError(error) { 
-var msg = 'An error occurred during capture: ' + error.code; 
+var msg = 'Sorry. Didn''t get the video. Code: ' + error.code; 
 navigator.notification.alert(msg, null, 'Uh oh!'); 
 } 
 
@@ -52,8 +52,8 @@ navigator.device.capture.captureVideo(captureSuccess, captureError, {limit: 2});
 <p>AvenueDhh Html5 Version</p>
 <p>
     <img src = "img/logo.png"
-         alt = "Picture of a happy monkey" />
+         alt = "wordMark" />
   </p>
-<button onclick="captureVideo();">Capture Video</button> <br>
+<button onclick="captureVideo();">Click to Record ASL</button> <br>
 </body> 
 </html> 
