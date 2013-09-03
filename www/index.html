@@ -21,7 +21,8 @@
 <html> 
 <head> 
 <title>Capture Video</title> 
-
+<link href="http://vjs.zencdn.net/4.1/video-js.css" rel="stylesheet">
+<script src="http://vjs.zencdn.net/4.1/video.js"></script>
 <script type="text/javascript" charset="utf-8" src="phonegap.js"></script> 
 <script type="text/javascript" charset="utf-8"> 
 
@@ -55,5 +56,13 @@ navigator.device.capture.captureVideo(captureSuccess, captureError, {limit: 2});
          alt = "wordMark" />
   </p>
 <button onclick="captureVideo();">Click to Record ASL</button> <br>
+
+<video id="my_video_1" class="video-js vjs-default-skin" controls
+ preload="auto" width="640" height="264" poster="my_video_poster.png"
+ data-setup="{}">
+ <source src="http://insys.vmhost.psu.edu/~jxl1089/video/gizmo.mp4" type='video/mp4'>
+ <source src="http://insys.vmhost.psu.edu/~jxl1089/video/gizmo.webmhd.webm" type='video/webm'>
+</video>
+
 </body> 
 </html> 
