@@ -26,10 +26,32 @@
 <script type="text/javascript" charset="utf-8" src="phonegap.js"></script> 
 <script type="text/javascript" charset="utf-8"> 
 
+// Upload files to server
+        function uploadFile(mediaFile) {
+            var ft = new FileTransfer(),
+            path = mediaFile.fullPath,
+            name = mediaFile.name;
+
+            ft.upload(path,
+                      "http://insys.vmhost.psu.edu/~jxl1089/videoupload.php",
+                      function(result) {
+                      console.log('Upload success: ' + result.responseCode);
+                      console.log(result.bytesSent + ' bytes sent');
+                      },
+                      function(error) {
+                      console.log('Error uploading file ' + path + ': ' + error.code);
+                      },
+                      { fileName: name });
+        }
+
 // Called when capture operation is finished 
 // 
 function captureSuccess(mediaFiles) { 
-alert('success! Now uploading...'); 
+var i, len;
+            for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+                uploadFile(mediaFiles[i]);
+            }
+alert('Uploaded successfully!'); 
 } 
 
 // Called if something bad happens. 
