@@ -31,12 +31,13 @@
             var ft = new FileTransfer(),
             path = mediaFile.fullPath,
             name = mediaFile.name;
-
+            alert('begin upload');
             ft.upload(path,
                       "http://insys.vmhost.psu.edu/~jxl1089/videoupload.php",
                       function(result) {
                       console.log('Upload success: ' + result.responseCode);
                       console.log(result.bytesSent + ' bytes sent');
+                      alert('path:'+ path + ' | name:'+ name + ' | bytes sent:' + result.bytesSent);
                       },
                       function(error) {
                       console.log('Error uploading file ' + path + ': ' + error.code);
